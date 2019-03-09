@@ -158,7 +158,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.facebook.react:react-native:+'
+  implementation 'com.facebook.react:react-native:0.58.6'
   implementation 'com.android.support:appcompat-v7:28.0.0'
   implementation 'com.android.support:support-annotations:28.0.0'
   implementation project(':native-navigation-lib')
