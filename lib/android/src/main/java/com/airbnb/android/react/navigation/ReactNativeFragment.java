@@ -240,29 +240,21 @@ public class ReactNativeFragment extends Fragment implements ReactInterface,
         contentContainer = (ReactNativeFragmentViewGroup) v.findViewById(R.id.content_container);
         contentContainer.setKeyListener(this);
         activity = (AppCompatActivity) getActivity();
+        activity.setSupportActionBar(toolbar);
 
-        // Set support action bar before setNavigationOnClickListener otherwise clicking back won't work on scratch RN application
-        if (activity instanceof ReactActivity) {
-            activity.setSupportActionBar(toolbar);
-        }
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Activity activity = ReactNativeFragment.this.getActivity();
-                if (activity instanceof ScreenCoordinatorComponent) {
-                    ((ScreenCoordinatorComponent) activity).getScreenCoordinator().onBackPressed();
-                } else {
-                    activity.onBackPressed();
+        if (activity instanceof ReactAwareActivity) {
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Activity activity = ReactNativeFragment.this.getActivity();
+                    if (activity instanceof ScreenCoordinatorComponent) {
+                        ((ScreenCoordinatorComponent) activity).getScreenCoordinator().onBackPressed();
+                    } else {
+                        activity.onBackPressed();
+                    }
                 }
-            }
-        });
-
-        // Set support action bar after setNavigationOnClickListener to allow override of the click listener in the activity for existing native apps
-        if (!(activity instanceof ReactActivity)) {
-            activity.setSupportActionBar(toolbar);
+            });
         }
-
 
         String moduleName = getArguments().getString(EXTRA_REACT_MODULE_NAME);
         Log.d(TAG, "onCreateView " + moduleName);

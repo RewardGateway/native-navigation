@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.module_name  = 'NativeNavigation'
 
-  s.source       = { :git => "https://github.com/airbnb/native-navigation.git", :tag => "v#{s.version}" }
+  s.source       = { :git => "https://github.com/airbnb/native-navigation.git" }
   s.source_files  = "lib/ios/native-navigation/*.{h,m,swift}"
 
   s.dependency 'React'
