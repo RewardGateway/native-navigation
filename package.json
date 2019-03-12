@@ -40,7 +40,7 @@
   },
   "homepage": "https://github.com/bamlab/native-navigation#readme",
   "dependencies": {
-    "prop-types": "^15.5.10",
+    "prop-types": "^15.7.2",
     "react-native-safe-module": "^1.1.0"
   },
   "devDependencies": {
