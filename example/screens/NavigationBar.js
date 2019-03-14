@@ -1,7 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types'; 
 import { Dimensions } from 'react-native';
-
-import Navigator from 'native-navigation';
 
 import LoremImage from '../components/LoremImage';
 import Screen from '../components/Screen';
@@ -20,16 +19,18 @@ export default class NavigationExampleScreen extends Component {
 
   render() {
     return (
-      <Screen>
-        <Navigator.Config {...this.state} />
+      <Screen title={this.state.title}>
         <LoremImage width={width} height={width / 1.6} />
         <Row
           title="Title"
-          onPress={() => this.setState({
-            title: 'A title',
-            subtitle: undefined,
-            rightButtons: undefined,
-          })}
+          onPress={() => {
+            console.log('only works on android');
+            this.setState({
+              title: 'A title',
+              subtitle: undefined,
+              rightButtons: undefined,
+            })
+          }}
         />
         <Row
           title="Title and subtitle"

@@ -1,50 +1,99 @@
 PODS:
-  - native-navigation (0.1.0):
+  - boost-for-react-native (1.63.0)
+  - DoubleConversion (1.1.6)
+  - Folly (2018.10.22.00):
+    - boost-for-react-native
+    - DoubleConversion
+    - glog
+  - glog (0.3.5)
+  - native-navigation (0.5.1):
     - React
-  - React (0.42.3):
-    - React/Core (= 0.42.3)
-  - React/Core (0.42.3):
-    - React/cxxreact
-    - Yoga (= 0.42.3.React)
-  - React/cxxreact (0.42.3):
-    - React/jschelpers
-  - React/jschelpers (0.42.3)
-  - React/RCTAnimation (0.42.3):
+  - React (0.59.0):
+    - React/Core (= 0.59.0)
+  - React/Core (0.59.0):
+    - yoga (= 0.59.0.React)
+  - React/CxxBridge (0.59.0):
+    - Folly (= 2018.10.22.00)
     - React/Core
-  - React/RCTImage (0.42.3):
+    - React/cxxreact
+    - React/jsiexecutor
+  - React/cxxreact (0.59.0):
+    - boost-for-react-native (= 1.63.0)
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+    - React/jsinspector
+  - React/DevSupport (0.59.0):
+    - React/Core
+    - React/RCTWebSocket
+  - React/fishhook (0.59.0)
+  - React/jsi (0.59.0):
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+  - React/jsiexecutor (0.59.0):
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+    - React/cxxreact
+    - React/jsi
+  - React/jsinspector (0.59.0)
+  - React/RCTBlob (0.59.0):
+    - React/Core
+  - React/RCTImage (0.59.0):
     - React/Core
     - React/RCTNetwork
-  - React/RCTNetwork (0.42.3):
+  - React/RCTNetwork (0.59.0):
     - React/Core
-  - React/RCTText (0.42.3):
+  - React/RCTText (0.59.0):
     - React/Core
-  - React/RCTWebSocket (0.42.3):
+  - React/RCTWebSocket (0.59.0):
     - React/Core
-  - Yoga (0.42.3.React)
+    - React/fishhook
+    - React/RCTBlob
+  - yoga (0.59.0.React)
 
 DEPENDENCIES:
+  - DoubleConversion (from `../../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
+  - Folly (from `../../node_modules/react-native/third-party-podspecs/Folly.podspec`)
+  - glog (from `../../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - native-navigation (from `../../`)
   - React/Core (from `../../node_modules/react-native`)
-  - React/RCTAnimation (from `../../node_modules/react-native`)
+  - React/CxxBridge (from `../../node_modules/react-native`)
+  - React/DevSupport (from `../../node_modules/react-native`)
   - React/RCTImage (from `../../node_modules/react-native`)
   - React/RCTNetwork (from `../../node_modules/react-native`)
   - React/RCTText (from `../../node_modules/react-native`)
   - React/RCTWebSocket (from `../../node_modules/react-native`)
-  - Yoga (from `../../node_modules/react-native/ReactCommon/yoga/Yoga.podspec`)
+  - yoga (from `../../node_modules/react-native/ReactCommon/yoga`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - boost-for-react-native
 
 EXTERNAL SOURCES:
+  DoubleConversion:
+    :podspec: "../../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
+  Folly:
+    :podspec: "../../node_modules/react-native/third-party-podspecs/Folly.podspec"
+  glog:
+    :podspec: "../../node_modules/react-native/third-party-podspecs/glog.podspec"
   native-navigation:
     :path: "../../"
   React:
     :path: "../../node_modules/react-native"
-  Yoga:
-    :path: "../../node_modules/react-native/ReactCommon/yoga/Yoga.podspec"
+  yoga:
+    :path: "../../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  native-navigation: 23b0ef13de8bd9aaa4dbaa115e9b7055e6844987
-  React: 35e039680feacd0563677d49ba410112d2748559
-  Yoga: 86ce777665c8259b94ef8dbea76b84634237f4ea
+  boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
+  Folly: de497beb10f102453a1afa9edbf8cf8a251890de
+  glog: aefd1eb5dda2ab95ba0938556f34b98e2da3a60d
+  native-navigation: 99d45a27cadcab88e930b40123a697fda37f30b7
+  React: 0d6c719d9549bea0bd5676f8170b0e5c56e2c3c7
+  yoga: 26673abd38bbdf0c33e134ad9e690c5fbf16e8fc
 
-PODFILE CHECKSUM: 62780c26b71f717952c8247c70052484dc91c6b3
+PODFILE CHECKSUM: e39ac26735571781a88d07a4fd238c209417ab47
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.6.1

@@ -118,6 +118,9 @@ Defaults to `'fade'`.
 
 #### `statusBarStyle: 'light' | 'default'`
 
+#### `overrideBackPressInJs: boolean`
+
+Allows to override the method called on activation of the back action.
 
 
 
@@ -136,6 +139,7 @@ Defaults to `'fade'`.
 
 #### `onRightPress: (index: number) => void`
 
+#### `onBackPress: () => void`
 
 
 

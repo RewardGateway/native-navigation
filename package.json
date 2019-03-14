@@ -1,6 +1,6 @@
 {
   "name": "@bam.tech/native-navigation",
-  "version": "0.0.0-development",
+  "version": "0.5.1",
   "description": "Native Navigation for React Native",
   "main": "index.js",
   "scripts": {
@@ -39,17 +39,15 @@
     "url": "https://github.com/bamlab/native-navigation/issues"
   },
   "homepage": "https://github.com/bamlab/native-navigation#readme",
-  "peerDependencies": {
-    "react": ">=15.3.1",
-    "react-native": ">=0.42"
-  },
   "dependencies": {
-    "prop-types": "^15.5.10",
+    "prop-types": "^15.7.2",
     "react-native-safe-module": "^1.1.0"
   },
   "devDependencies": {
+    "@babel/core": "7.3.4",
+    "@babel/runtime": "7.3.4",
     "babel-eslint": "^6.1.2",
-    "babel-plugin-module-resolver": "^2.3.0",
+    "babel-plugin-module-resolver": "^3.2.0",
     "babel-preset-airbnb": "^1.1.1",
     "babel-preset-react-native": "1.9.0",
     "commitizen": "^3.0.5",
@@ -63,9 +61,10 @@
     "eslint-plugin-react": "^6.1.2",
     "gitbook-cli": "^2.3.0",
     "husky": "^1.3.1",
+    "metro-react-native-babel-preset": "0.53.0",
     "murmur2js": "^1.0.0",
-    "react": "^15.4.1",
-    "react-native": "^0.42.3",
+    "react": "16.8.3",
+    "react-native": "0.59.0",
     "semantic-release": "^15.13.3",
     "validate-commit-msg": "^2.14.0"
   },

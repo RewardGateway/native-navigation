@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RCTBridgeDelegate, ReactN
   var bridge: RCTBridge?
   var reactViewController: ReactViewController?
 
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
     bridge = RCTBridge(delegate: self, launchOptions: nil)
     ReactNavigationCoordinator.sharedInstance.bridge = bridge
