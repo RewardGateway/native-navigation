@@ -24,7 +24,7 @@ export default class NavigationExampleScreen extends Component {
         <Row
           title="Title"
           onPress={() => {
-            console.log('doesnt seem to work');
+            console.log('only works on android');
             this.setState({
               title: 'A title',
               subtitle: undefined,

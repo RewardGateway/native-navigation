@@ -44,6 +44,8 @@
     "react-native-safe-module": "^1.1.0"
   },
   "devDependencies": {
+    "@babel/core": "7.3.4",
+    "@babel/runtime": "7.3.4",
     "babel-eslint": "^6.1.2",
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-preset-airbnb": "^1.1.1",
@@ -59,10 +61,10 @@
     "eslint-plugin-react": "^6.1.2",
     "gitbook-cli": "^2.3.0",
     "husky": "^1.3.1",
-    "metro-react-native-babel-preset": "^0.53.0",
+    "metro-react-native-babel-preset": "0.53.0",
     "murmur2js": "^1.0.0",
-    "react": "16.6.3",
-    "react-native": "0.58.6",
+    "react": "16.8.3",
+    "react-native": "0.59.0",
     "semantic-release": "^15.13.3",
     "validate-commit-msg": "^2.14.0"
   },

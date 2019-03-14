@@ -32,7 +32,7 @@ export default class Screen extends React.Component {
         title={title}
         backgroundColor={theme.color.lightGray}
         elevation={4}
-        overrideBackPressInJs={true}
+        overrideBackPressInJs={false} /* only for android */
         onBackPress={() => console.log('onBackPress')}
         onLeftPress={() => console.log('onLeftPress')}
         onRightPress={(x) => console.log('onRightPress', x)}
