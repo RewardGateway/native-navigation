@@ -276,6 +276,11 @@ public class ScreenCoordinator {
 
     }
     pop();
+
+    // backStack is empty, activity must finish
+    if (this.backStacks.empty()){
+      this.activity.finish();
+    }
   }
 
   public void pop() {
