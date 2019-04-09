@@ -191,6 +191,10 @@ func boolForKey(_ key: String, _ props: [String: AnyObject]) -> Bool? {
 func imageForKey(_ key: String, _ props: [String: AnyObject]) -> UIImage? {
   if let json = props[key] as? NSDictionary {
     return RCTConvert.uiImage(json)
+    
+//    RCTImageSource
+    
+//    return RCTImageFromLocalAssetURL(URL.init(string: json.object(forKey: "uri") as! String)!)
   }
   return nil
 }
@@ -679,68 +683,69 @@ func buildFontFromProps(nameKey: String, sizeKey: String, defaultSize: CGFloat, 
 }
 
 func titleAndSubtitleViewFromProps(_ props: [String: AnyObject]) -> UIView? {
-  guard let title = stringForKey("title", props) else { return nil }
-  guard let subtitle = stringForKey("subtitle", props) else { return nil }
-
-  let titleHeight = 18
-  let subtitleHeight = 12
-
-  let foregroundColor = colorForKey("foregroundColor", props)
-
-  let titleLabel = UILabel(frame: CGRect(x:0, y:-5, width:0, height:0))
-
-  titleLabel.backgroundColor = UIColor.clear
-
-  if let titleColor = colorForKey("titleColor", props) {
-    titleLabel.textColor = titleColor
-  } else if let titleColor = foregroundColor {
-    titleLabel.textColor = titleColor
-  } else {
-    titleLabel.textColor = UIColor.gray
-  }
-
-  titleLabel.font = buildFontFromProps(nameKey: "titleFontName", sizeKey: "titleFontSize", defaultSize: 17, props: props)
-  titleLabel.text = title
-  titleLabel.sizeToFit()
-
-  let subtitleLabel = UILabel(frame: CGRect(x:0, y:titleHeight, width:0, height:0))
-  subtitleLabel.backgroundColor = UIColor.clear
-
-
-  if let subtitleColor = colorForKey("subtitleColor", props) {
-    subtitleLabel.textColor = subtitleColor
-  } else if let titleColor = foregroundColor {
-    subtitleLabel.textColor = titleColor
-  } else {
-    subtitleLabel.textColor = UIColor.black
-  }
-
-  subtitleLabel.font = buildFontFromProps(nameKey: "subtitleFontName", sizeKey: "subtitleFontSize", defaultSize: 12, props: props)
-  subtitleLabel.text = subtitle
-  subtitleLabel.sizeToFit()
-
-  let titleView = UIView(
-    frame: CGRect(
-      x: 0,
-      y:0,
-      width: max(Int(titleLabel.frame.size.width), Int(subtitleLabel.frame.size.width)),
-      height: titleHeight + subtitleHeight
+    //  guard let title = stringForKey("title", props) else { return nil }
+    //  guard let subtitle = stringForKey("subtitle", props) else { return nil }
+    
+    let titleHeight = 18
+    let subtitleHeight = 12
+    let foregroundColor = colorForKey("foregroundColor", props)
+    let titleLabel = UILabel(frame: CGRect(x:0, y:-5, width:0, height:0))
+    
+    if let title = stringForKey("title", props) {
+        titleLabel.backgroundColor = UIColor.clear
+        
+        if let titleColor = colorForKey("titleColor", props) {
+            titleLabel.textColor = titleColor
+        } else if let titleColor = foregroundColor {
+            titleLabel.textColor = titleColor
+        } else {
+            titleLabel.textColor = UIColor.gray
+        }
+        
+        titleLabel.font = buildFontFromProps(nameKey: "titleFontName", sizeKey: "titleFontSize", defaultSize: 17, props: props)
+        titleLabel.text = title
+        titleLabel.sizeToFit()
+    }
+    
+    let subtitleLabel = UILabel(frame: CGRect(x:0, y:titleHeight, width:0, height:0))
+    if let subtitle = stringForKey("subtitle", props){
+        subtitleLabel.backgroundColor = UIColor.clear
+        
+        if let subtitleColor = colorForKey("subtitleColor", props) {
+            subtitleLabel.textColor = subtitleColor
+        } else if let titleColor = foregroundColor {
+            subtitleLabel.textColor = titleColor
+        } else {
+            subtitleLabel.textColor = UIColor.black
+        }
+        
+        subtitleLabel.font = buildFontFromProps(nameKey: "subtitleFontName", sizeKey: "subtitleFontSize", defaultSize: 12, props: props)
+        subtitleLabel.text = subtitle
+        subtitleLabel.sizeToFit()
+    }
+    
+    let titleView = UIView(
+        frame: CGRect(
+            x: 0,
+            y:0,
+            width: max(Int(titleLabel.frame.size.width), Int(subtitleLabel.frame.size.width)),
+            height: titleHeight + subtitleHeight
+        )
     )
-  )
-  titleView.addSubview(titleLabel)
-  titleView.addSubview(subtitleLabel)
-
-  let widthDiff = subtitleLabel.frame.size.width - titleLabel.frame.size.width
-
-  if widthDiff > 0 {
-    var frame = titleLabel.frame
-    frame.origin.x = widthDiff / 2
-    titleLabel.frame = frame
-  } else {
-    var frame = subtitleLabel.frame
-    frame.origin.x = abs(widthDiff) / 2
-    subtitleLabel.frame = frame
-  }
-
-  return titleView
+    titleView.addSubview(titleLabel)
+    titleView.addSubview(subtitleLabel)
+    
+    let widthDiff = subtitleLabel.frame.size.width - titleLabel.frame.size.width
+    
+    if widthDiff > 0 {
+        var frame = titleLabel.frame
+        frame.origin.x = widthDiff / 2
+        titleLabel.frame = frame
+    } else {
+        var frame = subtitleLabel.frame
+        frame.origin.x = abs(widthDiff) / 2
+        subtitleLabel.frame = frame
+    }
+    
+    return titleView
 }
