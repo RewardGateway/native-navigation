@@ -676,9 +676,9 @@ func buildFontFromProps(nameKey: String, sizeKey: String, defaultSize: CGFloat, 
   } else if let name = name {
     return getFont(name, defaultSize)
   } else if let size = size {
-    return UIFont.systemFont(ofSize: size)
+    return UIFont.systemFont(ofSize: size, weight: UIFontWeightSemibold)
   } else {
-    return UIFont.systemFont(ofSize: defaultSize)
+    return UIFont.systemFont(ofSize: defaultSize, weight: UIFontWeightSemibold)
   }
 }
 
@@ -689,9 +689,10 @@ func titleAndSubtitleViewFromProps(_ props: [String: AnyObject]) -> UIView? {
     let titleHeight = 18
     let subtitleHeight = 12
     let foregroundColor = colorForKey("foregroundColor", props)
-    let titleLabel = UILabel(frame: CGRect(x:0, y:-5, width:0, height:0))
+    let titleLabel = UILabel(frame: CGRect(x:0, y:5, width:0, height:0))
     
-    if let title = stringForKey("title", props) {
+    let title = stringForKey("title", props) ?? ""
+    if !title.isEmpty {
         titleLabel.backgroundColor = UIColor.clear
         
         if let titleColor = colorForKey("titleColor", props) {
@@ -708,7 +709,8 @@ func titleAndSubtitleViewFromProps(_ props: [String: AnyObject]) -> UIView? {
     }
     
     let subtitleLabel = UILabel(frame: CGRect(x:0, y:titleHeight, width:0, height:0))
-    if let subtitle = stringForKey("subtitle", props){
+    let subtitle = stringForKey("subtitle", props) ?? ""
+    if !subtitle.isEmpty {
         subtitleLabel.backgroundColor = UIColor.clear
         
         if let subtitleColor = colorForKey("subtitleColor", props) {
@@ -722,6 +724,10 @@ func titleAndSubtitleViewFromProps(_ props: [String: AnyObject]) -> UIView? {
         subtitleLabel.font = buildFontFromProps(nameKey: "subtitleFontName", sizeKey: "subtitleFontSize", defaultSize: 12, props: props)
         subtitleLabel.text = subtitle
         subtitleLabel.sizeToFit()
+    }
+    
+    if title.isEmpty && subtitle.isEmpty {
+        return nil
     }
     
     let titleView = UIView(
