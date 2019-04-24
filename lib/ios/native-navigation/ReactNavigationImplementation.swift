@@ -676,9 +676,9 @@ func buildFontFromProps(nameKey: String, sizeKey: String, defaultSize: CGFloat, 
   } else if let name = name {
     return getFont(name, defaultSize)
   } else if let size = size {
-    return UIFont.systemFont(ofSize: size, weight: UIFontWeightSemibold)
+    return UIFont.systemFont(ofSize: size, weight: UIFont.Weight.semibold)
   } else {
-    return UIFont.systemFont(ofSize: defaultSize, weight: UIFontWeightSemibold)
+    return UIFont.systemFont(ofSize: defaultSize, weight: UIFont.Weight.semibold)
   }
 }
 
