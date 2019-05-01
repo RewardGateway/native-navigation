@@ -29,6 +29,7 @@ import com.facebook.react.ReactRootView;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.devsupport.DoubleTapReloadRecognizer;
+import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.modules.core.PermissionListener;
 
 import java.util.List;
@@ -242,7 +243,7 @@ public class ReactNativeFragment extends Fragment implements ReactInterface,
         activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
 
-        if (activity instanceof ReactAwareActivity) {
+        if (activity instanceof DefaultHardwareBackBtnHandler) {
             toolbar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
