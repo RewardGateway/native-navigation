@@ -289,7 +289,8 @@ func configureBarButtonItemFromPrefix(
   // * width
 
   let title = stringForKey(lower("\(prefix)Title"), props)
-  let image = imageForKey(lower("\(prefix)Image"), props)
+  var image = imageForKey(lower("\(prefix)Image"), props)
+  image = image?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
   let systemItem = stringForKey(lower("\(prefix)SystemItem"), props)
   let barButtonSystemItem = barButtonSystemItemFromString(systemItem)
   let enabled = boolForKey(lower("\(prefix)Enabled"), props)
