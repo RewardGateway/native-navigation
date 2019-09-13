@@ -48,25 +48,8 @@ class BlockBarButtonItem: UIBarButtonItem {
   }
 
   @objc convenience init(image: UIImage?, style: UIBarButtonItem.Style) {
-    guard let theimage = image else {
-        self.init(image: image, style: style, target: nil, action: #selector(self.barButtonItemPressed(sender:)))
-        return
-    }
-
-    let moreButton = UIButton(frame: CGRect(
-            x: 0,
-            y: 0,
-            width: theimage.size.width * theimage.scale,
-            height: theimage.size.height * theimage.scale
-        )
-    )
-    self.init(customView: moreButton)
-    
-    moreButton.setBackgroundImage(image, for: .normal)
-    moreButton.addTarget(self, action: #selector(self.barButtonItemPressed(sender:)), for: .touchUpInside)
-    self.style = style
-//  self.init(image: image, style: style, target: nil, action: #selector(barButtonItemPressed))
-//  self.target = self
+    self.init(image: image, style: style, target: nil, action: #selector(barButtonItemPressed))
+    self.target = self
   }
 
   @objc convenience init(barButtonSystemItem: UIBarButtonItem.SystemItem) {
