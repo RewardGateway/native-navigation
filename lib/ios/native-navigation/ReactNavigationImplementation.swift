@@ -191,10 +191,8 @@ func boolForKey(_ key: String, _ props: [String: AnyObject]) -> Bool? {
 func imageForKey(_ key: String, _ props: [String: AnyObject]) -> UIImage? {
   if let json = props[key] as? NSDictionary {
     return RCTConvert.uiImage(json)
-    
-//    RCTImageSource
-    
-//    return RCTImageFromLocalAssetURL(URL.init(string: json.object(forKey: "uri") as! String)!)
+    // let source = RCTConvert.rctImageSource(json)
+    // return RCTImageFromLocalAssetURL(source!.request.url!)
   }
   return nil
 }
