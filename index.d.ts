@@ -1,6 +1,33 @@
 declare module '@bam.tech/native-navigation' {
     import { Component, ReactElement } from 'react'
-    import { NavigatorProps, WrappedScreen } from '@bam.tech/native-navigation'
+
+    class WrappedScreen extends Component {} // eslint-disable-line
+
+    export interface WrappedScreen {
+        getChildContext(): object
+    }
+
+    export interface NavigatorProps {
+        title: string
+        color: string
+        backgroundColor: number | string
+        foregroundColor: number | string
+        enableLiveReload?: boolean
+        translucent?: boolean
+        navIcon?: object
+        leftButtons?: object[]
+        children?: any
+        rightButtons?: object[]
+        overrideBackPressInJs?: boolean
+
+        onAppear?(): void
+        onDisappear?(): void
+        onEnterTransitionCompleted?(): void
+        onBarHeightChanged?(): void
+        onRightPress?(index: number): void
+        onBackPress?(): void
+        onLeftPress?(): void
+    }
 
     export enum ScreenType {
         SCREEN = 'screen',
@@ -13,9 +40,8 @@ declare module '@bam.tech/native-navigation' {
         mode?: ScreenType
     }
 
-    /* eslint-disable */
     export default class Navigator extends Component<NavigatorProps> {
-        /* eslint-enable */
+
         private constructor()
 
         static Config: (props: NavigatorProps) => JSX.Element
@@ -60,5 +86,5 @@ declare module '@bam.tech/native-navigation' {
             payload?: { [key: string]: any }, //
             animated?: boolean
         ): void
-    } // eslint-disable-line
+    }
 }
