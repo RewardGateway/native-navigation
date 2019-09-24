@@ -8,10 +8,10 @@ declare module '@bam.tech/native-navigation' {
     }
 
     export interface NavigatorProps {
-        title: string
-        color: string
-        backgroundColor: number | string
-        foregroundColor: number | string
+        title?: string
+        color?: string
+        backgroundColor?: number | string
+        foregroundColor?: number | string
         enableLiveReload?: boolean
         translucent?: boolean
         navIcon?: object
