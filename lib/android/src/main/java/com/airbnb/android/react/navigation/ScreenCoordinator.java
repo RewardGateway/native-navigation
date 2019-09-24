@@ -277,7 +277,11 @@ public class ScreenCoordinator {
       }
 
     }
-    pop();
+
+    if (this.getCurrentBackStack().getSize() > 0) {
+      pop();
+      return;
+    }
 
     // backStack is empty, activity must finish
     if (this.backStacks.empty()){
@@ -394,7 +398,7 @@ public class ScreenCoordinator {
   }
 
   @Nullable
-  private BackStack getCurrentBackStack() {
+  public BackStack getCurrentBackStack() {
     if (backStacks.isEmpty()) {
       return null;
     }

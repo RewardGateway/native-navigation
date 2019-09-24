@@ -248,11 +248,7 @@ public class ReactNativeFragment extends Fragment implements ReactInterface,
                 @Override
                 public void onClick(View v) {
                     Activity activity = ReactNativeFragment.this.getActivity();
-                    if (activity instanceof ScreenCoordinatorComponent) {
-                        ((ScreenCoordinatorComponent) activity).getScreenCoordinator().onBackPressed();
-                    } else {
-                        activity.onBackPressed();
-                    }
+                    activity.onBackPressed();
                 }
             });
         }

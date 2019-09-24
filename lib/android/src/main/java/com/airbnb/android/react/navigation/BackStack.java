@@ -2,7 +2,7 @@ package com.airbnb.android.react.navigation;
 
 import com.facebook.react.bridge.Promise;
 
-class BackStack {
+public class BackStack {
 
     private final String tag;
 
@@ -50,7 +50,7 @@ class BackStack {
         this.setFragmentCount(0);
     }
 
-    boolean isEmpty() {
+    public boolean isEmpty() {
         return getSize() == 0;
     }
 
