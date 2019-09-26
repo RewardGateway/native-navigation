@@ -7,7 +7,31 @@ declare module '@bam.tech/native-navigation' {
         getChildContext(): object
     }
 
-    export interface NavigatorProps {
+    interface NavigatorButtonProps {
+        uri: string
+        width: number
+        height: number
+        scale: number
+    }
+
+    interface NavigatorButton {
+        image:NavigatorButtonProps
+    }
+
+    interface HasLeftButtons {
+        leftButtons?: NavigatorButton[]
+        onBackPress?(): void
+        onLeftPress?(): void
+    }
+
+    // interface NoLeftButtons {
+    //     leftButtons?: undefined
+    //     onBackPress?(): void
+    //     onLeftPress?(): void
+    // }
+
+    export type NavigatorProps =
+    {
         title?: string
         color?: string
         backgroundColor?: number | string
@@ -15,9 +39,8 @@ declare module '@bam.tech/native-navigation' {
         enableLiveReload?: boolean
         translucent?: boolean
         navIcon?: object
-        leftButtons?: object[]
         children?: any
-        rightButtons?: object[]
+        rightButtons?: NavigatorButton[]
         overrideBackPressInJs?: boolean
 
         onAppear?(): void
@@ -25,9 +48,7 @@ declare module '@bam.tech/native-navigation' {
         onEnterTransitionCompleted?(): void
         onBarHeightChanged?(): void
         onRightPress?(index: number): void
-        onBackPress?(): void
-        onLeftPress?(): void
-    }
+    } & HasLeftButtons
 
     export enum ScreenType {
         SCREEN = 'screen',
