@@ -247,8 +247,12 @@ public class ReactNativeFragment extends Fragment implements ReactInterface,
             toolbar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Activity activity = ReactNativeFragment.this.getActivity();
-                    activity.onBackPressed();
+                    if (getActivity() instanceof ScreenCoordinatorComponent) {
+                        ScreenCoordinator screenCoordinator = ((ScreenCoordinatorComponent) getActivity()).getScreenCoordinator();
+                        if (screenCoordinator != null) {
+                            screenCoordinator.onBackPressed();
+                        }
+                    }
                 }
             });
         }
