@@ -38,7 +38,7 @@ public class BackStack {
         fragmentCount--;
     }
 
-    int getSize() {
+    public int getSize() {
         return fragmentCount;
     }
 
