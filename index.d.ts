@@ -48,6 +48,8 @@ declare module '@bam.tech/native-navigation' {
         onEnterTransitionCompleted?(): void
         onBarHeightChanged?(): void
         onRightPress?(index: number): void
+
+        nativeNavigationInstanceId?:string
     } & HasLeftButtons
 
     export enum ScreenType {
