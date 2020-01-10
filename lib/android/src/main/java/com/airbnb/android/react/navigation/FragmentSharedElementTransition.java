@@ -2,7 +2,7 @@ package com.airbnb.android.react.navigation;
 
 import android.annotation.TargetApi;
 import android.os.Build;
-import android.support.v4.view.animation.FastOutSlowInInterpolator;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import android.transition.ChangeBounds;
 import android.transition.ChangeImageTransform;
 import android.transition.ChangeTransform;

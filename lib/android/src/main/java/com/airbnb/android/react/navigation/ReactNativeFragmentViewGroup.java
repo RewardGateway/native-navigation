@@ -1,7 +1,7 @@
 package com.airbnb.android.react.navigation;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.widget.FrameLayout;

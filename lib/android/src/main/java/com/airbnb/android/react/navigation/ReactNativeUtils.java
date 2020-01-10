@@ -5,9 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.app.FragmentActivity;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.fragment.app.FragmentActivity;
 
 import com.airbnb.android.R;
 import com.facebook.react.bridge.ReactContext;

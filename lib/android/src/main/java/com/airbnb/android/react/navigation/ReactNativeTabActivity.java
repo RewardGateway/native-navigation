@@ -1,11 +1,11 @@
 package com.airbnb.android.react.navigation;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.util.ArrayMap;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.fragment.app.Fragment;
+import androidx.collection.ArrayMap;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
