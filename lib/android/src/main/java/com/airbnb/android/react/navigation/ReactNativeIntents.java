@@ -14,9 +14,9 @@ import com.facebook.react.bridge.ReadableMap;
 
 public final class ReactNativeIntents {
 
-    static final String EXTRA_MODULE_NAME = "REACT_MODULE_NAME";
+    public static final String EXTRA_MODULE_NAME = "REACT_MODULE_NAME";
 
-    static final String EXTRA_PROPS = "REACT_PROPS";
+    public static final String EXTRA_PROPS = "REACT_PROPS";
 
     static final String EXTRA_CODE = "code";
 
