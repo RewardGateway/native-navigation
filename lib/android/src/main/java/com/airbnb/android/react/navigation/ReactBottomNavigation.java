@@ -20,7 +20,6 @@ import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.imagepipeline.image.QualityInfo;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.uimanager.PixelUtil;
-import com.facebook.react.views.toolbar.DrawableWithIntrinsicSize;
 
 // TODO(lmr): we might want to make this an abstract class and have a default implementation
 public class ReactBottomNavigation extends BottomNavigationView {

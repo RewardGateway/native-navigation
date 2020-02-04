@@ -165,10 +165,12 @@ open class ReactViewController: UIViewController {
   override open func loadView() {
     coordinator.registerViewController(self)
 
+  if let bridge = coordinator.bridge {    
     self.view = RCTRootView(
-      bridge: coordinator.bridge,
+      bridge: bridge,
       moduleName: moduleName,
       initialProperties: props)
+  }
 
     if let screenColor = colorForKey("screenColor", initialConfig) {
       self.view.backgroundColor = screenColor
