@@ -1,3 +1,11 @@
+buildscript {
+  repositories {
+    google()
+    jcenter()
+    maven { url 'https://maven.google.com' }
+  }
+}
+
 apply plugin: 'com.android.library'
 apply from: 'gradle-maven-push.gradle'
 
@@ -48,9 +56,9 @@ android {
 }
 
 dependencies {
-  api 'com.android.support:appcompat-v7:28.0.0'
-  api 'com.android.support:support-annotations:28.0.0'
-  api 'com.android.support:design:28.0.0'
+  implementation 'androidx.appcompat:appcompat:1.0.0'
+  implementation 'androidx.annotation:annotation:1.0.0'
+  implementation 'com.google.android.material:material:1.1.0'
   api 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
   api 'com.facebook.fresco:fresco:1.10.0'
   api 'com.facebook.fresco:imagepipeline-okhttp3:1.3.0'
