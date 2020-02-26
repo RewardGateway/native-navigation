@@ -7,7 +7,6 @@ buildscript {
 }
 
 apply plugin: 'com.android.library'
-apply from: 'gradle-maven-push.gradle'
 
 android {
   //allow publish all variants of a library (by default its false)
