@@ -343,7 +343,7 @@ public class ReactNativeFragment extends Fragment implements ReactInterface,
         return null;
     }
 
-    private void cleanUpAfterDestroyView() {
+    protected void cleanUpAfterDestroyView() {
         // required to remove GlobalLayoutListener within reactRootView
         contentContainer.removeAllViews();
 
