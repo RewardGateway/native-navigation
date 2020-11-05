@@ -166,7 +166,7 @@ open class ReactViewController: UIViewController {
     coordinator.registerViewController(self)
 
     self.view = RCTRootView(
-      bridge: coordinator.bridge,
+      bridge: coordinator.bridge!,
       moduleName: moduleName,
       initialProperties: props)
 
