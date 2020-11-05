@@ -81,10 +81,10 @@ open class ReactTabBarController: UITabBarController {
     self.view.backgroundColor = .white
     coordinator.registerViewController(self)
     if let reactView = RCTRootView(
-      bridge: coordinator.bridge,
+      bridge: coordinator.bridge!,
       moduleName: moduleName,
       initialProperties: propsWithMetadata(props, nativeNavigationInstanceId, barHeight)
-    ) {
+    ) as Optional {
 
       // If we do end up attaching the view, we might want to use this to prevent it from
       // being visible to the user
